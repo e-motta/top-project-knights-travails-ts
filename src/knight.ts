@@ -46,6 +46,7 @@ const Knight = (board: Board): Knight => {
     path.unshift(targetCoord);
 
     if (targetSquare.parent === originSquare) {
+      path.unshift(originCoord);
       return path;
     }
 
@@ -74,7 +75,7 @@ const Knight = (board: Board): Knight => {
 
     clearParentRelations();
 
-    return [originCoord, ...path];
+    return path;
   };
 
   const knightMoves = (originCoord: number[], targetCoord: number[]): void => {
